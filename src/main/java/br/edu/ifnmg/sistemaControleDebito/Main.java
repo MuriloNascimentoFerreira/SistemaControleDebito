@@ -7,7 +7,7 @@ package br.edu.ifnmg.sistemaControleDebito;
 
 import br.edu.ifnmg.sistemaControleDebito.controle.ControleTelaInicial;
 import br.edu.ifnmg.sistemaControleDebito.view.MenuInicial;
-import entidade.Gerente;
+import br.edu.ifnmg.sistemaControleDebito.modelo.entidade.Gerente;
 
 
 /**
