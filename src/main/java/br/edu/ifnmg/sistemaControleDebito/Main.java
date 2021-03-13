@@ -6,7 +6,7 @@
 package br.edu.ifnmg.sistemaControleDebito;
 
 import br.edu.ifnmg.sistemaControleDebito.controle.ControleTelaInicial;
-import br.edu.ifnmg.sistemaControleDebito.view.MenuInicial;
+import br.edu.ifnmg.sistemaControleDebito.modelo.dados.PessoaDAO;
 import br.edu.ifnmg.sistemaControleDebito.modelo.entidade.Gerente;
 
 
@@ -18,14 +18,14 @@ public class Main {
     
     public static void main(String[] args) {
         
-        Gerente gerente = new Gerente("Guilherme", "000.111.222-03", "guilherme@teste.com", "rua teste numero 001",
-        "9.888.777", 2000, 15,
-        "guilhermeGerenteUm", "22203");
+        Gerente gerente = new Gerente("admin", "000.111.222-03", "admin@teste.com", "rua teste numero 001",
+        "9.888.777", 0, 0,
+        "gerente", "admin");
+        PessoaDAO.adicionarPessoa(gerente); 
     
         ControleTelaInicial controleTelaInicial = new ControleTelaInicial();
         controleTelaInicial.ControlarOpcaoEscolhida();
         
-    
     }
     
 }

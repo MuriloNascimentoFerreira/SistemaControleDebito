@@ -28,5 +28,24 @@ public class Gerente extends Funcionario {
     public void cadastrarFuncionarioVendedor(Pessoa pessoa){
     
     }
+    
+    public String getUsuario() {
+        return usuario;
+    }
+
+    public void setUsuario(String usuario) {
+        this.usuario = usuario;
+    }
+
+    public boolean validarSenha(String senhaTentada) {
+        boolean resposta;
+        if(this.senha.equals(senhaTentada)){
+            resposta = true;
+        }else{
+            resposta = false;
+        }
+        
+        return resposta;
+    }
 
 }
