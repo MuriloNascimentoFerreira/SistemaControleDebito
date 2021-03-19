@@ -12,7 +12,7 @@ import java.util.Scanner;
  *
  * @author Murilo
  */
-public class ControleTelaInicialGerente {
+public class TelaInicialGerenteControle {
     private int opcaoDesejada;
     
     public void ControlarOpcaoEscolhidaGerente(){

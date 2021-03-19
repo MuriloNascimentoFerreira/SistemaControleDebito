@@ -3,12 +3,14 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package br.edu.ifnmg.sistemaControleDebito.modelo.entidade;
+package br.edu.ifnmg.sistemaControleDebito.modelo;
 
 /**
  *
  * @author Murilo
  */
-public class Vendedor {
+public class Caixa {
+    private String usuario;
+    private String senha;
     
 }

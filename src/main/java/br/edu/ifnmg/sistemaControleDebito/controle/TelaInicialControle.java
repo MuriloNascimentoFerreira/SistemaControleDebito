@@ -5,8 +5,8 @@
  */
 package br.edu.ifnmg.sistemaControleDebito.controle;
 
-import br.edu.ifnmg.sistemaControleDebito.modelo.dados.PessoaDAO;
-import br.edu.ifnmg.sistemaControleDebito.modelo.entidade.Gerente;
+import br.edu.ifnmg.sistemaControleDebito.dados.PessoaDAO;
+import br.edu.ifnmg.sistemaControleDebito.modelo.Gerente;
 import br.edu.ifnmg.sistemaControleDebito.view.Tela;
 import java.util.Scanner;
 
@@ -14,7 +14,7 @@ import java.util.Scanner;
  *
  * @author Murilo
  */
-public class ControleTelaInicial {
+public class TelaInicialControle {
     
      private int opcaoDesejada;
     
@@ -23,7 +23,7 @@ public class ControleTelaInicial {
         do{
             Tela tela = new Tela();
             this.opcaoDesejada = tela.carregarTelaInicial() ;
-            ControleTelaInicialGerente controleTelaInicialGerente = new ControleTelaInicialGerente();
+            TelaInicialGerenteControle controleTelaInicialGerente = new TelaInicialGerenteControle();
             
             switch (opcaoDesejada){
                 case 1:

@@ -7,6 +7,7 @@ package br.edu.ifnmg.sistemaControleDebito.view;
 
 import java.util.Scanner;
 
+
 /**
  *
  * @author Murilo
@@ -21,8 +22,8 @@ public class Tela {
         System.out.printf("2- Caixa\n");
         System.out.printf("0- Sair\n");
         Scanner ler = new Scanner(System.in);
-        opcao = ler.nextInt();
-        
+        opcao = Integer.parseInt(ler.nextLine());//mudar para forma de helder
+  
         return opcao;
     }
     
@@ -35,7 +36,7 @@ public class Tela {
         System.out.printf("------------------------------------------------------\n");
         System.out.printf("Digite a opção desejada: \n");
         Scanner ler = new Scanner(System.in);
-        opcao = ler.nextInt();
+        opcao = Integer.parseInt(ler.nextLine());
         
         return opcao;
     }

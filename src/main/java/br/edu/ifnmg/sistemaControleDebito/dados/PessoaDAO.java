@@ -3,10 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package br.edu.ifnmg.sistemaControleDebito.modelo.dados;
+package br.edu.ifnmg.sistemaControleDebito.dados;
 
-import br.edu.ifnmg.sistemaControleDebito.modelo.entidade.Pessoa;
-import br.edu.ifnmg.sistemaControleDebito.modelo.entidade.Gerente;
+import br.edu.ifnmg.sistemaControleDebito.modelo.Pessoa;
+import br.edu.ifnmg.sistemaControleDebito.modelo.Gerente;
 import java.util.ArrayList;
 
 /**
