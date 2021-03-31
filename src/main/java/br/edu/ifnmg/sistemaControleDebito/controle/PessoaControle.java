@@ -17,5 +17,9 @@ public class PessoaControle {
     public void adicionarPessoaControle(Gerente gerente){
         PessoaDAO.adicionarPessoa(gerente);
     }
+
+    public void excluirPessoaControle(Gerente gerente) {
+       PessoaDAO.excluirPessoa(gerente);
+    }
     
 }

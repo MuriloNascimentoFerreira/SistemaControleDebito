@@ -5,9 +5,12 @@
  */
 package br.edu.ifnmg.sistemaControleDebito;
 
-import br.edu.ifnmg.sistemaControleDebito.controle.TelaInicialControle;
+import br.edu.ifnmg.sistemaControleDebito.controle.MenuInicialControle;
 import br.edu.ifnmg.sistemaControleDebito.controle.PessoaControle;
+import br.edu.ifnmg.sistemaControleDebito.controle.PrimeiroAcessoControle;
+import static br.edu.ifnmg.sistemaControleDebito.controle.PrimeiroAcessoControle.PrimeiroAcessoControle;
 import br.edu.ifnmg.sistemaControleDebito.modelo.Gerente;
+import br.edu.ifnmg.sistemaControleDebito.view.Tela;
 
 
 /**
@@ -23,8 +26,14 @@ public class Main {
         "admin", "admin");
         PessoaControle pessoaControle = new PessoaControle();
         pessoaControle.adicionarPessoaControle(gerente); 
-    
-        TelaInicialControle controleTelaInicial = new TelaInicialControle();
+        PrimeiroAcessoControle();
+        
+       // gerente.cadastrarFuncionarioControle();//chama o controle para cadastrar o primeiro gerente
+        //ussar a reescrita de metodo para chamar esse metodo sem precisar passar parametro
+        
+        pessoaControle.excluirPessoaControle(gerente); //exclui o usuário padrão
+        //continua o fluxo normal
+        MenuInicialControle controleTelaInicial = new MenuInicialControle();
         controleTelaInicial.ControlarOpcaoEscolhida();
         
     }

@@ -49,4 +49,8 @@ public class PessoaDAO {
         return gerente;
     }
     */
+
+    public static void excluirPessoa(Gerente gerente) {
+        pessoas.remove(gerente);
+    }
 }

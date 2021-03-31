@@ -9,8 +9,12 @@ package br.edu.ifnmg.sistemaControleDebito.modelo;
  *
  * @author Murilo
  */
-public class Caixa {
+public class Caixa extends UsuarioSistema {
     private String usuario;
     private String senha;
+
+    public Caixa(String nome, String cpf, String endereco, String email, String rg, double salarioFixo, double bonusSalarial, String usuario, String senha) {
+        super(nome, cpf, endereco, email, rg, salarioFixo, bonusSalarial, usuario, senha);
+    }
     
 }

@@ -12,7 +12,7 @@ import java.util.Scanner;
  *
  * @author Murilo
  */
-public class TelaInicialGerenteControle {
+public class MenuInicialGerenteControle {
     private int opcaoDesejada;
     
     public void ControlarOpcaoEscolhidaGerente(){
@@ -29,7 +29,7 @@ public class TelaInicialGerenteControle {
 
                 case 3: //relatorios
                 
-                case 0: return; //sair
+                case 0: break; //sair
                 
                 default: tela.mensagemOpcaoInvalida();
             }

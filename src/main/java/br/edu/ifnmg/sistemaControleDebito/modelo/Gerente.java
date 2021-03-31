@@ -9,43 +9,22 @@ package br.edu.ifnmg.sistemaControleDebito.modelo;
  *
  * @author Murilo
  */
-public class Gerente extends Funcionario {
-    private String usuario;
-    private String senha;
-    
-    public Gerente(String nome, String cpf, String endereco, String email, 
-            String rg, double salarioFixo, double bonusSalarial, 
-           String usuario, String senha){
-        super(nome, cpf, endereco, email, rg, salarioFixo, bonusSalarial);
-        this.usuario = usuario;
-        this.senha =  senha; 
+public class Gerente extends UsuarioSistema {
+
+    public Gerente(String nome, String cpf, String endereco, String email, String rg, double salarioFixo, 
+            double bonusSalarial, String usuario, String senha) {
+        super(nome, cpf, endereco, email, rg, salarioFixo, bonusSalarial, usuario, senha);
     }
+
     
-    public void cadastrarFuncionario(Pessoa pessoa){
+    
+    public void cadastrarFuncionario(Gerente gerente){
         
     }
     
-    public void cadastrarFuncionarioVendedor(Pessoa pessoa){
+    public void cadastrarFuncionario(Pessoa pessoa){//vendedor//caixa usar reescrita de metodo.
     
     }
-    
-    public String getUsuario() {
-        return usuario;
-    }
 
-    public void setUsuario(String usuario) {
-        this.usuario = usuario;
-    }
-
-    public boolean validarSenha(String senhaTentada) {
-        boolean resposta;
-        if(this.senha.equals(senhaTentada)){
-            resposta = true;
-        }else{
-            resposta = false;
-        }
-        
-        return resposta;
-    }
 
 }

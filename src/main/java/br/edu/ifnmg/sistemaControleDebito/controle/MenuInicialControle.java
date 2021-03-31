@@ -14,7 +14,7 @@ import java.util.Scanner;
  *
  * @author Murilo
  */
-public class TelaInicialControle {
+public class MenuInicialControle {
     
      private int opcaoDesejada;
     
@@ -23,18 +23,24 @@ public class TelaInicialControle {
         do{
             Tela tela = new Tela();
             this.opcaoDesejada = tela.carregarTelaInicial() ;
-            TelaInicialGerenteControle controleTelaInicialGerente = new TelaInicialGerenteControle();
+            MenuInicialGerenteControle telaInicialGerenteControle = new MenuInicialGerenteControle();
+            MenuInicialCaixaControle telaInicialCaixaControle = new MenuInicialCaixaControle();
             
             switch (opcaoDesejada){
                 case 1:
                     if (autenticarLogin(1) == true){
-                        controleTelaInicialGerente.ControlarOpcaoEscolhidaGerente();
+                        telaInicialGerenteControle.ControlarOpcaoEscolhidaGerente();
                     }else{
-                        //tela.mensagemOpcaoInvalida();
+                     //   tela.mensagemOpcaoInvalida();
                     }
                         break;
 
-                case 2://caixa
+                case 2:
+                    if(autenticarLogin(1) == true){
+                        telaInicialCaixaControle.ControlarOpcaoEscolhidaCaixa();
+                    }else{
+                    //    tela.mensagemOpcaoInvalida();
+                    }
                 
                 case 0: return; //sair
                 
@@ -58,7 +64,10 @@ public class TelaInicialControle {
             String senhaTentada = ler.nextLine();
 
             gerente = (Gerente) PessoaDAO.buscarPessoa(usuario);
-            if(gerente != null){
+            if(gerente == null){
+                System.out.println("Usuário ou senha inválidos!");
+                return false;
+            }else{
                 resposta = gerente.validarSenha(senhaTentada);
             }
         }
