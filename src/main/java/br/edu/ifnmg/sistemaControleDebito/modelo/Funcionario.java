@@ -9,21 +9,41 @@ package br.edu.ifnmg.sistemaControleDebito.modelo;
  *
  * @author Murilo
  */
-public abstract class Funcionario extends Pessoa {
+public abstract class Funcionario {
+    private String nome;
+    private String cpf;
+    private String endereco;
+    private String email;
     private String rg;
     private double salarioFixo;
     private double bonusSalarial;
     
-    public Funcionario(String nome, String cpf, String endereco, String email,
-            String rg, double salarioFixo, double bonusSalarial){
-        super(nome, cpf, endereco, email);
+
+    public Funcionario(String nome, String cpf, String endereco, String email, String rg, double salarioFixo, double bonusSalarial) {
+        this.nome = nome;
+        this.cpf = cpf;
+        this.endereco = endereco;
+        this.email = email;
         this.rg = rg;
         this.salarioFixo = salarioFixo;
         this.bonusSalarial = bonusSalarial;
     }
-      /*public double gerarSalarioTotal(){
+    
+
+       /*public double gerarSalarioTotal(){
     
     
     }*/
 
+    public String getNome() {
+        return nome;
+    }
+
+    public double getSalarioFixo() {
+        return salarioFixo;
+    }
+
+    public double getBonusSalarial() {
+        return bonusSalarial;
+    }
 }

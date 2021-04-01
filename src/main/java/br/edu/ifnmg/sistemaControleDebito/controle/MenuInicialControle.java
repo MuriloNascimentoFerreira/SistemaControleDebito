@@ -5,7 +5,7 @@
  */
 package br.edu.ifnmg.sistemaControleDebito.controle;
 
-import br.edu.ifnmg.sistemaControleDebito.dados.PessoaDAO;
+import br.edu.ifnmg.sistemaControleDebito.dados.FuncionarioDAO;
 import br.edu.ifnmg.sistemaControleDebito.modelo.Gerente;
 import br.edu.ifnmg.sistemaControleDebito.view.Tela;
 import java.util.Scanner;
@@ -28,23 +28,26 @@ public class MenuInicialControle {
             
             switch (opcaoDesejada){
                 case 1:
-                    if (autenticarLogin(1) == true){
+                    if (autenticarLogin(1)){
                         telaInicialGerenteControle.ControlarOpcaoEscolhidaGerente();
-                    }else{
-                     //   tela.mensagemOpcaoInvalida();
-                    }
                         break;
+                    }else{
+                        break;
+                    }
+                        
 
                 case 2:
-                    if(autenticarLogin(1) == true){
+                    if(autenticarLogin(1)){
                         telaInicialCaixaControle.ControlarOpcaoEscolhidaCaixa();
+                        break;
                     }else{
-                    //    tela.mensagemOpcaoInvalida();
+                     
+                        break;
                     }
                 
                 case 0: return; //sair
                 
-                default: tela.mensagemOpcaoInvalida();
+                default: Tela.mensagemOpcaoInvalida();
             }
         }while(true);
     }
@@ -63,9 +66,9 @@ public class MenuInicialControle {
             System.out.printf("Senha: \n");
             String senhaTentada = ler.nextLine();
 
-            gerente = (Gerente) PessoaDAO.buscarPessoa(usuario);
+            gerente = (Gerente) FuncionarioDAO.buscarFuncionario(usuario);
             if(gerente == null){
-                System.out.println("Usuário ou senha inválidos!");
+                Tela.mensagemLoginInvalido();
                 return false;
             }else{
                 resposta = gerente.validarSenha(senhaTentada);

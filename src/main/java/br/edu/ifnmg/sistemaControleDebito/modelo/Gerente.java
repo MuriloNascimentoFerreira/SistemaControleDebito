@@ -11,8 +11,8 @@ package br.edu.ifnmg.sistemaControleDebito.modelo;
  */
 public class Gerente extends UsuarioSistema {
 
-    public Gerente(String nome, String cpf, String endereco, String email, String rg, double salarioFixo, 
-            double bonusSalarial, String usuario, String senha) {
+    public Gerente(String nome, String cpf, String endereco, String email, String rg, double salarioFixo, double bonusSalarial, 
+            String usuario, String senha) {
         super(nome, cpf, endereco, email, rg, salarioFixo, bonusSalarial, usuario, senha);
     }
 
@@ -22,7 +22,7 @@ public class Gerente extends UsuarioSistema {
         
     }
     
-    public void cadastrarFuncionario(Pessoa pessoa){//vendedor//caixa usar reescrita de metodo.
+    public void cadastrarFuncionario(Funcionario funcionario){//vendedor//caixa usar reescrita de metodo.
     
     }
 

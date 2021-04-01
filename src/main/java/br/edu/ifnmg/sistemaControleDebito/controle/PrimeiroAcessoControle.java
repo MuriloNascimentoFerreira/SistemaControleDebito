@@ -5,7 +5,7 @@
  */
 package br.edu.ifnmg.sistemaControleDebito.controle;
 
-import br.edu.ifnmg.sistemaControleDebito.dados.PessoaDAO;
+import br.edu.ifnmg.sistemaControleDebito.dados.FuncionarioDAO;
 import br.edu.ifnmg.sistemaControleDebito.modelo.Gerente;
 import br.edu.ifnmg.sistemaControleDebito.view.Tela;
 import java.util.Scanner;
@@ -32,15 +32,21 @@ public class PrimeiroAcessoControle {
             System.out.println("Senha: ");
             senhaTentada = ler.nextLine();
 
-            gerente = (Gerente) PessoaDAO.buscarPessoa(usuario);
+            gerente = (Gerente) FuncionarioDAO.buscarFuncionario(usuario);
             if(gerente == null){
                 System.out.println("Usuário ou senha inválidos!");
             }else if (gerente.validarSenha(senhaTentada)){
-                    cadastrarFuncionario();
+                    System.out.println("\nFaça o seu cadastro para continuar\n");
+                    cadastrarPrimeiroGerente();
                     break;
             }
         }while(true);
  
+    }
+    
+    private static void cadastrarPrimeiroGerente(){
+        GerenteControle gerenteControle = new GerenteControle();
+        gerenteControle.CadastrarFuncionario();
     }
     
 }

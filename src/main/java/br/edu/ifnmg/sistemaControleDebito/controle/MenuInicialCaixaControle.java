@@ -14,7 +14,7 @@ import br.edu.ifnmg.sistemaControleDebito.view.Tela;
 public class MenuInicialCaixaControle {
 
     private int opcaoDesejada;
-    
+   
     public void ControlarOpcaoEscolhidaCaixa(){
        
         do{
@@ -22,18 +22,17 @@ public class MenuInicialCaixaControle {
             this.opcaoDesejada = tela.carregarTelaInicialCaixa() ;
             
             switch (opcaoDesejada){
-                case 1: System.out.println("Opção um do caixa"); //chamar controlador para essa função 
+                case 1:DebitoControle.gerenciarOpcaoDebitoControle();
                     break;
 
-                case 2://pessoas 
+                case 2://Cadastrar clientes 
 
                 case 3: //relatorios
                 
                 case 0: return; //sair
                 
-                default: tela.mensagemOpcaoInvalida();
+                default: Tela.mensagemOpcaoInvalida();
             }
         }while(true);
-    }
-    
+    }   
 }

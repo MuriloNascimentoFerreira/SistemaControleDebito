@@ -5,21 +5,21 @@
  */
 package br.edu.ifnmg.sistemaControleDebito.controle;
 
-import br.edu.ifnmg.sistemaControleDebito.dados.PessoaDAO;
+import br.edu.ifnmg.sistemaControleDebito.dados.FuncionarioDAO;
 import br.edu.ifnmg.sistemaControleDebito.modelo.Gerente;
 
 /**
  *
  * @author Murilo
  */
-public class PessoaControle {
+public class FuncionarioControle {
     
-    public void adicionarPessoaControle(Gerente gerente){
-        PessoaDAO.adicionarPessoa(gerente);
+    public void adicionarFuncionario(Gerente gerente){
+        FuncionarioDAO.adicionarFuncionario(gerente);
     }
 
-    public void excluirPessoaControle(Gerente gerente) {
-       PessoaDAO.excluirPessoa(gerente);
+    public void excluirFuncionario(Gerente gerente) {
+       FuncionarioDAO.excluirFuncionario(gerente);
     }
     
 }

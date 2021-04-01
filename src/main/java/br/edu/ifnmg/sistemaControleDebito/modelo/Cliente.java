@@ -5,12 +5,20 @@
  */
 package br.edu.ifnmg.sistemaControleDebito.modelo;
 
+import java.util.ArrayList;
+
 /**
- *
+ * refatorar 
  * @author Murilo
  */
-public class Cliente extends Pessoa {
+public class Cliente {
+    
+    private String nome;
+    private String cpf;
+    private String endereco;
+    private String email;
     private double limiteCredito;
+    private ArrayList<Debito> debitos;
     
     /*boolean getStatus(){
     
@@ -18,10 +26,13 @@ public class Cliente extends Pessoa {
     */
 
     public Cliente(double limiteCredito, String nome, String cpf, String endereco, String email) {
-        super(nome, cpf, endereco, email);
+        this.nome = nome;
+        this.cpf = cpf;
+        this.endereco = endereco;
+        this.email = email;
         this.limiteCredito = limiteCredito;
     }
     
-    
+    //criar um metodo que adiciona os debitos de uma pessoa na lista de debitos dela
     
 }

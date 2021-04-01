@@ -29,7 +29,7 @@ public class MenuInicialGerenteControle {
 
                 case 3: //relatorios
                 
-                case 0: break; //sair
+                case 0: return; //sair
                 
                 default: tela.mensagemOpcaoInvalida();
             }

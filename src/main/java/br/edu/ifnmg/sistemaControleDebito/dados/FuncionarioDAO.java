@@ -5,7 +5,7 @@
  */
 package br.edu.ifnmg.sistemaControleDebito.dados;
 
-import br.edu.ifnmg.sistemaControleDebito.modelo.Pessoa;
+import br.edu.ifnmg.sistemaControleDebito.modelo.Funcionario;
 import br.edu.ifnmg.sistemaControleDebito.modelo.Gerente;
 import java.util.ArrayList;
 
@@ -13,26 +13,26 @@ import java.util.ArrayList;
  *
  * @author Murilo
  */
-public class PessoaDAO {
+public class FuncionarioDAO {
     
-    private static ArrayList<Pessoa> pessoas =  new ArrayList<>();
+    private static final ArrayList<Funcionario> funcionarios =  new ArrayList<>();
     
-    public static void adicionarPessoa(Pessoa pessoa){
-        pessoas.add(pessoa);
+    public static void adicionarFuncionario(Funcionario funcionario){
+        funcionarios.add(funcionario);
     }
     
-    public static Pessoa buscarPessoa(String usuario) {
-        Pessoa pessoa = null;
-        for(Pessoa pessoaEmPesquisa : pessoas){
-            if (pessoaEmPesquisa instanceof Gerente){
-                Gerente gerenteEmPesquisa = (Gerente) pessoaEmPesquisa;
+    public static Funcionario buscarFuncionario(String usuario) {
+        Funcionario funcionario = null;
+        for(Funcionario funcionarioEmPesquisa : funcionarios){
+            if (funcionarioEmPesquisa instanceof Gerente){
+                Gerente gerenteEmPesquisa = (Gerente) funcionarioEmPesquisa;
                 if(gerenteEmPesquisa.getUsuario().equals(usuario) ){
-                    pessoa = pessoaEmPesquisa;
+                    funcionario = funcionarioEmPesquisa;
                     break;
                 }
             }
         }
-        return pessoa;
+        return funcionario;
     }
     
     /*public static Pessoa buscarPessoa(Gerente gerenteTentandoLogar) {
@@ -50,7 +50,7 @@ public class PessoaDAO {
     }
     */
 
-    public static void excluirPessoa(Gerente gerente) {
-        pessoas.remove(gerente);
+    public static void excluirFuncionario(Gerente gerente) {
+        funcionarios.remove(gerente);
     }
 }
