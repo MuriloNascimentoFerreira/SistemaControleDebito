@@ -32,6 +32,8 @@ public class ClienteControle extends Exception{
             cliente.setEmail(ler.nextLine());
             System.out.println("Limite de credito: ");
             cliente.setLimiteCredito(Double.parseDouble(ler.nextLine()));
+           // cliente.setId(ClienteDAO.getIdContator);
+            cliente.setDebitos();
             ClienteDAO.adicionarCliente(cliente);
             System.out.println("\n***Cadastro realizado com sucesso! \n");
             

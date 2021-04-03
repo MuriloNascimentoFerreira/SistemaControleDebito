@@ -5,6 +5,9 @@
  */
 package br.edu.ifnmg.sistemaControleDebito.view;
 
+import br.edu.ifnmg.sistemaControleDebito.modelo.Debito;
+import br.edu.ifnmg.sistemaControleDebito.modelo.DebitoCliente;
+import java.util.ArrayList;
 import java.util.Scanner;
 
 
@@ -13,11 +16,9 @@ import java.util.Scanner;
  * @author Murilo
  */
 public class Tela {
-
-    private int opcao;
     
-    public int carregarTelaTiposDebitosCaixa() {
-        
+    public static int carregarTelaTiposDebitosCaixa() {
+        int opcao;
         System.out.printf("-------------------- Débitos ----------------------\n");
         System.out.printf("*Para quem deseja atribuir esse débito?\n");
         System.out.printf("1- Clientes\n");
@@ -29,8 +30,8 @@ public class Tela {
     }
     
     
-    public int carregarTelaInicial(){
-    
+    public static int carregarTelaInicial(){
+        int opcao;
         System.out.printf("------------------ Menu Inicial ----------------------\n");
         System.out.printf("1- Gerente\n");
         System.out.printf("2- Caixa\n");
@@ -41,7 +42,8 @@ public class Tela {
         return opcao;
     }
     
-    public int carregarTelaInicialGerente(){
+    public static int carregarTelaInicialGerente(){
+        int opcao;
         System.out.printf("---------------Menu Inicial Gerente-------------------\n");
         System.out.printf("1- Registrar Débitos\n");
         System.out.printf("2- Cadastrar pessoas\n");
@@ -69,7 +71,8 @@ public class Tela {
     public static void numeroInvalido(){
         System.out.println("\n*** Você digitou letras no lugar de números\n***Inicie a operação novamente.\n");
     }
-    public int carregarTelaInicialCaixa() {
+    public static int carregarTelaInicialCaixa() {
+        int opcao;
         System.out.printf("---------------Menu Inicial Caixa-------------------\n");
         System.out.printf("1- Registrar Débitos\n");
         System.out.printf("2- Registrar Clientes\n");
@@ -84,17 +87,42 @@ public class Tela {
        
     }
 
+    public static void imprimirListaDebitos(ArrayList<Debito> debitos) {
+        for(Debito debito : debitos){
+            if(debito instanceof DebitoCliente){
+                DebitoCliente debitoCliente = (DebitoCliente) debito;
+                System.out.println(debito.getDescricao());
+            
+            }
+        }
+    }
+
     public void primeiroAcessoTela(){
         System.out.printf("---------Bem vindo ao seu primeiro acesso-----------\n");
         System.out.printf("\n--> Faça login com seu Usuário e senha padrão\n");
     }
 
-    public int carregarTelaTiposPagamentos() {
+    public static int carregarTelaTiposPagamentos() {
+        int opcao;
         System.out.printf("------------------- Pagamentos -------------------\n");
         System.out.printf("*Quem é o responsável pelo pagamento? \n");
         System.out.printf("1- É um Cliente \n");
         System.out.printf("2- É um funcionario que está pagando sua dívida\n");
         System.out.printf("3- É o gerente que está pagando algum débito da loja\n");
+        System.out.printf("0- Retornar menu anterior\n");
+        System.out.printf("----------------------------------------------------\n");
+        System.out.printf("Digite a opção desejada: \n");
+        Scanner ler = new Scanner(System.in);
+        opcao = Integer.parseInt(ler.nextLine());
+        
+        return opcao;
+    }
+     public static int carregarTelaTiposPagamentos_dois() {
+        int opcao;
+        System.out.printf("------------------- Pagamentos -------------------\n");
+        System.out.printf("*Por qual modo deseja buscar? \n");
+        System.out.printf("1- Procurar os debitos por nome da pessoa. \n");
+        System.out.printf("2- Procurar por descrição do debito\n");
         System.out.printf("0- Retornar menu anterior\n");
         System.out.printf("----------------------------------------------------\n");
         System.out.printf("Digite a opção desejada: \n");

@@ -29,8 +29,7 @@ public class DebitoControle extends Exception{
     public static void gerenciarOpcaoDebitoControle(){
         try{
             do{
-                Tela tela = new Tela();
-                opcaoDesejada = tela.carregarTelaTiposDebitosCaixa();
+                opcaoDesejada = Tela.carregarTelaTiposDebitosCaixa();
 
                 switch (opcaoDesejada){
                     case 1:debitosClienteControle();
@@ -51,16 +50,15 @@ public class DebitoControle extends Exception{
 
     private static void debitosClienteControle() {//buscar o cliente e atribuir o debito a ele.
         String nome;
-        Cliente cliente;
+        Cliente cliente = new Cliente();
         Scanner ler = new Scanner(System.in);
         System.out.println("Nome do Cliente:");
         nome = (ler.nextLine());
         cliente = ClienteDAO.buscarCliente(nome);
         
         if(cliente != null){
-            System.out.println("Cliente achado");
             DebitoCliente debitoCliente = new DebitoCliente();
-            cadastrarDebito(debitoCliente,cliente.getId());
+            cadastrarDebito(debitoCliente,cliente);
         }
     }
 
@@ -78,7 +76,7 @@ public class DebitoControle extends Exception{
         }
     }
 
-    private static void cadastrarDebito(DebitoCliente debitoCliente,int idResponsavel) {
+    private static void cadastrarDebito(DebitoCliente debitoCliente, Cliente cliente) {
         
         System.out.println("---------------- Cadastro Débito -------------------");
         Scanner ler = new Scanner(System.in);
@@ -91,9 +89,13 @@ public class DebitoControle extends Exception{
         System.out.println("Intervalo em dias de cada parcela: ");
         debitoCliente.setIntervaloParcela(Integer.parseInt(ler.nextLine()) );
         debitoCliente.setDataDebito(LocalDateTime.now());
-        debitoCliente.setId(idResponsavel);
+       // debitoCliente.setId(idResponsavel);
         System.out.println("---------------------------------------------------\n");
+      
+        cliente.setDebito(debitoCliente);
         DebitoDAO.adicionarDebito(debitoCliente);
+        ClienteDAO.atualizarDados(cliente);
+        
         System.out.println("***Cadastro concluido com suscesso!\n");
    
     }

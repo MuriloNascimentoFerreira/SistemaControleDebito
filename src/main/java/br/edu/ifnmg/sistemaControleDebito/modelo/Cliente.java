@@ -35,13 +35,11 @@ public class Cliente {
 
     public Cliente() {
     }
-    
-    //criar um metodo que adiciona os debitos de uma pessoa na lista de debitos dela
 
     public String getNome() {
         return nome;
     }
-
+    
     public ArrayList<Debito> getDebitos() {
         return debitos;
     }
@@ -74,8 +72,12 @@ public class Cliente {
         this.limiteCredito = limiteCredito;
     }
 
-    public void setDebitos(ArrayList<Debito> debitos) {
-        this.debitos = debitos;
+    public void setDebitos() {
+        this.debitos = new ArrayList<>();
+    }
+
+    public void setDebito(Debito debito) {
+        this.debitos.add(debito);
     }
     
 }

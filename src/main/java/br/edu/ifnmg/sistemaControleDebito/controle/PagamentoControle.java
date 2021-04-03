@@ -5,7 +5,11 @@
  */
 package br.edu.ifnmg.sistemaControleDebito.controle;
 
+import br.edu.ifnmg.sistemaControleDebito.dados.ClienteDAO;
+import br.edu.ifnmg.sistemaControleDebito.modelo.Debito;
 import br.edu.ifnmg.sistemaControleDebito.view.Tela;
+import java.util.ArrayList;
+import java.util.Scanner;
 
 /**
  *
@@ -13,13 +17,15 @@ import br.edu.ifnmg.sistemaControleDebito.view.Tela;
  */
 class PagamentoControle {
     private static int opcaoDesejada;
-   /* public static void realizarPagamento(){       // int opcao;
+    public static void realizarPagamento(){       
 
         
          try{
             do{
-                Tela tela = new Tela();
-                tela.carregarTelaTiposPagamentos();
+                opcaoDesejada = Tela.carregarTelaTiposPagamentos_dois();
+                switch (opcaoDesejada){
+                    case 1:buscarDebitosCliente();
+                        break;
                 
                 }
             }while(true);
@@ -27,9 +33,9 @@ class PagamentoControle {
             Tela.numeroInvalido();
         } 
     
-    }*/
+    }
     
-    public static void realizarPagamento(){
+  /*  public static void realizarPagamento(){
         //fazer um swith para quem desenha pagar? 
 
         //2 funcionario
@@ -62,7 +68,7 @@ class PagamentoControle {
         }catch(NumberFormatException e){
             Tela.numeroInvalido();
         } 
-    }
+    }*/
 
     private static void realizarPagamentoCliente() {
         
@@ -73,6 +79,16 @@ class PagamentoControle {
     }
 
     private static void realizarPagamentoloja() {
+        
+    }
+
+    private static void buscarDebitosCliente() {
+        
+        System.out.println("Nome: ");
+        Scanner ler = new Scanner(System.in);
+        String nome = ler.nextLine();
+        ArrayList<Debito> debitos = ClienteDAO.buscarTodosDebitosCliente(nome);
+        Tela.imprimirListaDebitos(debitos);
         
     }
     public void NumberFormatException(){

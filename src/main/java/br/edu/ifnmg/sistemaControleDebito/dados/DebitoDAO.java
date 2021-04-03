@@ -20,7 +20,6 @@ public class DebitoDAO {
     
     public static void adicionarDebito(Debito debito){
         debitos.add(debito);
-        
     }
     
     

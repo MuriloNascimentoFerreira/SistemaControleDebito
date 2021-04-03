@@ -14,8 +14,9 @@ import java.util.ArrayList;
  * @author Murilo
  */
 public class ClienteDAO {
-    private static ArrayList<Cliente> clientes = new ArrayList<>();
+    private static final ArrayList<Cliente> clientes = new ArrayList<>();
     private static int idContador = 0;
+    public static int getIdContator;
     
     public static Cliente buscarCliente(String nome) {
         Cliente cliente = null;
@@ -34,20 +35,35 @@ public class ClienteDAO {
     }
     
     public static ArrayList<Debito> buscarTodosDebitosCliente(String nomeCliente){
-        ArrayList<Debito> debitosDoCliente = null;
+        ArrayList<Debito> debitosDoCliente = new ArrayList<>();
         for(Cliente clienteEmPesquisa : clientes){
-            if(clienteEmPesquisa.getNome().equals(nomeCliente)){
-             debitosDoCliente = clienteEmPesquisa.getDebitos();
+            if(clienteEmPesquisa.getNome().equalsIgnoreCase(nomeCliente)){
+                debitosDoCliente = clienteEmPesquisa.getDebitos();
              break;
             } 
-           
         }
-        
         return debitosDoCliente;
     }
 
     private static void interarContador() {
        idContador++;
+    }
+
+    public static int getIdContador() {
+        return idContador;
+    }
+
+    public static void atualizarDados(Cliente cliente) {
+        for(Cliente clientePesquisado : clientes){
+            if(clientePesquisado.getNome().equalsIgnoreCase(cliente.getNome())){
+                ClienteDAO.removerCliente(clientePesquisado);
+                ClienteDAO.adicionarCliente(cliente);
+            }
+        }
+    }
+
+    private static void removerCliente(Cliente clientePesquisado) {
+        clientes.remove(clientePesquisado);
     }
     
 }
