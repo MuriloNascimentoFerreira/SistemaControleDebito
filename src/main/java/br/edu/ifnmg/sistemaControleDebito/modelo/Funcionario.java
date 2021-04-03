@@ -10,6 +10,7 @@ package br.edu.ifnmg.sistemaControleDebito.modelo;
  * @author Murilo
  */
 public abstract class Funcionario {
+    private int id;
     private String nome;
     private String cpf;
     private String endereco;
@@ -45,5 +46,9 @@ public abstract class Funcionario {
 
     public double getBonusSalarial() {
         return bonusSalarial;
+    }
+
+    public int getId() {
+        return id;
     }
 }

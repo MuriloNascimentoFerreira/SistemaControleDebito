@@ -18,9 +18,9 @@ public class Main {
     
     public static void main(String[] args) {
         
-        Gerente gerente = new Gerente("admin", "000.111.222-03", "admin@teste.com", "rua teste numero 001",
-        "9.888.777", 0, 0,
-        "admin", "admin");
+        Gerente gerente = new Gerente("admin", "000.111.222-03", "admin@teste.com",
+                "rua teste numero 001", "9.888.777", 0, 0, "admin", "admin");
+        
         FuncionarioControle funcionarioControle = new FuncionarioControle();
         funcionarioControle.adicionarFuncionario(gerente); 
        // PrimeiroAcessoControle();

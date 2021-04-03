@@ -25,10 +25,12 @@ public class MenuInicialCaixaControle {
                 case 1:DebitoControle.gerenciarOpcaoDebitoControle();
                     break;
 
-                case 2://Cadastrar clientes 
-
-                case 3: //relatorios
-                
+                case 2:ClienteControle.cadastrarCliente();
+                    break;
+                    
+                case 3:PagamentoControle.realizarPagamento();
+                      break;
+                      
                 case 0: return; //sair
                 
                 default: Tela.mensagemOpcaoInvalida();

@@ -16,9 +16,11 @@ import java.util.ArrayList;
 public class FuncionarioDAO {
     
     private static final ArrayList<Funcionario> funcionarios =  new ArrayList<>();
+    private static int idContador = 0;
     
     public static void adicionarFuncionario(Funcionario funcionario){
         funcionarios.add(funcionario);
+        interarContador();
     }
     
     public static Funcionario buscarFuncionario(String usuario) {
@@ -26,7 +28,7 @@ public class FuncionarioDAO {
         for(Funcionario funcionarioEmPesquisa : funcionarios){
             if (funcionarioEmPesquisa instanceof Gerente){
                 Gerente gerenteEmPesquisa = (Gerente) funcionarioEmPesquisa;
-                if(gerenteEmPesquisa.getUsuario().equals(usuario) ){
+                if(gerenteEmPesquisa.getUsuario().equalsIgnoreCase(usuario) ){
                     funcionario = funcionarioEmPesquisa;
                     break;
                 }
@@ -52,5 +54,9 @@ public class FuncionarioDAO {
 
     public static void excluirFuncionario(Gerente gerente) {
         funcionarios.remove(gerente);
+    }
+    
+    private static void interarContador() {
+        idContador++;
     }
 }

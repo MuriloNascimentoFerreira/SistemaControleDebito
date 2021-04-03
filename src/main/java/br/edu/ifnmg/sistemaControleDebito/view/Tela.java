@@ -36,7 +36,7 @@ public class Tela {
         System.out.printf("2- Caixa\n");
         System.out.printf("0- Sair\n");
         Scanner ler = new Scanner(System.in);
-        opcao = Integer.parseInt(ler.nextLine());//mudar para forma de helder
+        opcao = Integer.parseInt(ler.nextLine());
   
         return opcao;
     }
@@ -85,8 +85,23 @@ public class Tela {
     }
 
     public void primeiroAcessoTela(){
-        System.out.printf("---------Bem vindo ao seu primeiro acesso------------\n");
+        System.out.printf("---------Bem vindo ao seu primeiro acesso-----------\n");
         System.out.printf("\n--> Faça login com seu Usuário e senha padrão\n");
+    }
+
+    public int carregarTelaTiposPagamentos() {
+        System.out.printf("------------------- Pagamentos -------------------\n");
+        System.out.printf("*Quem é o responsável pelo pagamento? \n");
+        System.out.printf("1- É um Cliente \n");
+        System.out.printf("2- É um funcionario que está pagando sua dívida\n");
+        System.out.printf("3- É o gerente que está pagando algum débito da loja\n");
+        System.out.printf("0- Retornar menu anterior\n");
+        System.out.printf("----------------------------------------------------\n");
+        System.out.printf("Digite a opção desejada: \n");
+        Scanner ler = new Scanner(System.in);
+        opcao = Integer.parseInt(ler.nextLine());
+        
+        return opcao;
     }
 
 }

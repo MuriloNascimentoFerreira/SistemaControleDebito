@@ -12,7 +12,7 @@ import java.util.ArrayList;
  * @author Murilo
  */
 public class Cliente {
-    
+    private int id;
     private String nome;
     private String cpf;
     private String endereco;
@@ -32,7 +32,50 @@ public class Cliente {
         this.email = email;
         this.limiteCredito = limiteCredito;
     }
+
+    public Cliente() {
+    }
     
     //criar um metodo que adiciona os debitos de uma pessoa na lista de debitos dela
+
+    public String getNome() {
+        return nome;
+    }
+
+    public ArrayList<Debito> getDebitos() {
+        return debitos;
+    }
+
+    public int getId() {
+       return id;
+    }
+
+    public void setNome(String nome) {
+        this.nome =  nome;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public void setCpf(String cpf) {
+        this.cpf = cpf;
+    }
+
+    public void setEndereco(String endereco) {
+        this.endereco = endereco;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public void setLimiteCredito(double limiteCredito) {
+        this.limiteCredito = limiteCredito;
+    }
+
+    public void setDebitos(ArrayList<Debito> debitos) {
+        this.debitos = debitos;
+    }
     
 }

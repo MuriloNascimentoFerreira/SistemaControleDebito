@@ -5,12 +5,18 @@
  */
 package br.edu.ifnmg.sistemaControleDebito.controle;
 
+import br.edu.ifnmg.sistemaControleDebito.dados.ClienteDAO;
 import br.edu.ifnmg.sistemaControleDebito.dados.DebitoDAO;
+import br.edu.ifnmg.sistemaControleDebito.dados.FuncionarioDAO;
+import br.edu.ifnmg.sistemaControleDebito.modelo.Cliente;
 import br.edu.ifnmg.sistemaControleDebito.modelo.Debito;
 import br.edu.ifnmg.sistemaControleDebito.modelo.DebitoCliente;
 import br.edu.ifnmg.sistemaControleDebito.modelo.DebitoFuncionario;
+import br.edu.ifnmg.sistemaControleDebito.modelo.DebitoLoja;
+import br.edu.ifnmg.sistemaControleDebito.modelo.Funcionario;
 import br.edu.ifnmg.sistemaControleDebito.view.Tela;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.Scanner;
 
 /**
@@ -31,7 +37,8 @@ public class DebitoControle extends Exception{
                         break;
 
                     case 2:debitosFuncionarioControle();
-
+                            break;
+                            
                     case 0: return; 
 
                     default: Tela.mensagemOpcaoInvalida();
@@ -39,22 +46,39 @@ public class DebitoControle extends Exception{
             }while(true);
         }catch(NumberFormatException e){
             Tela.numeroInvalido();
+        }        
+    }
+
+    private static void debitosClienteControle() {//buscar o cliente e atribuir o debito a ele.
+        String nome;
+        Cliente cliente;
+        Scanner ler = new Scanner(System.in);
+        System.out.println("Nome do Cliente:");
+        nome = (ler.nextLine());
+        cliente = ClienteDAO.buscarCliente(nome);
+        
+        if(cliente != null){
+            System.out.println("Cliente achado");
+            DebitoCliente debitoCliente = new DebitoCliente();
+            cadastrarDebito(debitoCliente,cliente.getId());
         }
-                
-                
     }
 
-    private static void debitosClienteControle() {
-        DebitoCliente debitoCliente = new DebitoCliente();
-        cadastrarDebito(debitoCliente);
+    private static void debitosFuncionarioControle() { 
+        String nome;
+        Funcionario funcionario;
+        Scanner ler = new Scanner(System.in);
+        System.out.println("Nome do funcionario:");
+        nome = (ler.nextLine());
+        funcionario = FuncionarioDAO.buscarFuncionario(nome);
+        
+        if(funcionario.equals(null)){
+            DebitoFuncionario debitofuncionario = new DebitoFuncionario();
+            cadastrarDebito(debitofuncionario,funcionario.getId());
+        }
     }
 
-    private static void debitosFuncionarioControle() {//implementar esse 
-        DebitoFuncionario debitoFuncionario = new DebitoFuncionario();
-        cadastrarDebito(debitoFuncionario);
-    }
-
-    private static void cadastrarDebito(DebitoCliente debitoCliente) {
+    private static void cadastrarDebito(DebitoCliente debitoCliente,int idResponsavel) {
         
         System.out.println("---------------- Cadastro Débito -------------------");
         Scanner ler = new Scanner(System.in);
@@ -67,14 +91,14 @@ public class DebitoControle extends Exception{
         System.out.println("Intervalo em dias de cada parcela: ");
         debitoCliente.setIntervaloParcela(Integer.parseInt(ler.nextLine()) );
         debitoCliente.setDataDebito(LocalDateTime.now());
-        debitoCliente.setId(DebitoDAO.getContadorId());
+        debitoCliente.setId(idResponsavel);
         System.out.println("---------------------------------------------------\n");
         DebitoDAO.adicionarDebito(debitoCliente);
         System.out.println("***Cadastro concluido com suscesso!\n");
    
     }
     
-     private static void cadastrarDebito(DebitoFuncionario debitoFuncionario) {
+     private static void cadastrarDebito(DebitoFuncionario debitoFuncionario, int idResponsavel) {
         
         System.out.println("---------------- Cadastro Débito -------------------");
         Scanner ler = new Scanner(System.in);
@@ -86,15 +110,32 @@ public class DebitoControle extends Exception{
         debitoFuncionario.setValorParcela(Double.parseDouble(ler.nextLine()));
         System.out.println("Intervalo em dias de cada parcela: ");
         debitoFuncionario.setIntervaloParcela(Integer.parseInt(ler.nextLine()) );
-         System.out.println("Quantos porcento de desconto? ");
+        System.out.println("Quantos porcento de desconto? ");
         debitoFuncionario.setPorcentagemDesconto(Integer.parseInt(ler.nextLine()) );
         debitoFuncionario.setDataDebito(LocalDateTime.now());
-        debitoFuncionario.setId(DebitoDAO.getContadorId());
+        debitoFuncionario.setId(idResponsavel);
         System.out.println("---------------------------------------------------\n");
         DebitoDAO.adicionarDebito(debitoFuncionario);
         System.out.println("***Cadastro concluido com suscesso!\n");
    
     }
+     
+     public static Debito buscarDebito(ArrayList<Debito> debitos, String descricaoDebito){// ver se necessária
+        Debito debito = null;                                  
+        for(Debito debitoEmPesquisa : debitos){     
+            if (debitoEmPesquisa instanceof DebitoCliente){
+                DebitoCliente debitoCliente = (DebitoCliente) debitoEmPesquisa;
+                if(debitoCliente.getDescricao().equals(descricaoDebito) ){
+                    debito = debitoCliente;
+                    break;
+                }
+            }else if(debitoEmPesquisa instanceof DebitoFuncionario){
+                //
+            }else if(debitoEmPesquisa instanceof DebitoLoja){
+            }
+        }
+        return debito;
+    } 
     
     public void NumberFormatException(){
         DebitoControle.gerenciarOpcaoDebitoControle();

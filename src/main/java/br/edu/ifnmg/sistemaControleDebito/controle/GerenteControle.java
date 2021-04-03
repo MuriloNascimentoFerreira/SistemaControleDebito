@@ -25,7 +25,7 @@ public class GerenteControle {
     private String usuario;
     private String senha;
     
-    public void CadastrarFuncionario(){
+    public void CadastrarFuncionario(){//mudar para classe FuncionarioControle 
         
         System.out.println("-----------------Cadastro de Gerente--------------\n");
         Scanner ler = new Scanner(System.in);

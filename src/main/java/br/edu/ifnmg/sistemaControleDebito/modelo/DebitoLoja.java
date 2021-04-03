@@ -5,16 +5,10 @@
  */
 package br.edu.ifnmg.sistemaControleDebito.modelo;
 
-import java.util.Date;
-
 /**
  *
  * @author Murilo
  */
-public class Pagamento {
-    
-    private String numeroDaParcela;
-    private Date data;
-    Debito debito;
+public class DebitoLoja extends Debito{
     
 }
