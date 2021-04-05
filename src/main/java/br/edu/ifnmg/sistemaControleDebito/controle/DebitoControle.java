@@ -23,7 +23,7 @@ import java.util.Scanner;
  *
  * @author Murilo
  */
-public class DebitoControle extends Exception{
+public class DebitoControle{
     private  static int opcaoDesejada;
      
     public static void gerenciarOpcaoDebitoControle(){

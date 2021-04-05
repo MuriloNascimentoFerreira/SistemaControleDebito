@@ -20,6 +20,10 @@ public class Caixa extends UsuarioSistema {
         this.senha = senha;
     }
 
+    public Caixa() {
+       
+    }
+
     
     
 }

@@ -14,7 +14,7 @@ import java.util.Scanner;
  *
  * @author Murilo
  */
-public class ClienteControle extends Exception{
+public class ClienteControle {
     
     public static void cadastrarCliente(){
         

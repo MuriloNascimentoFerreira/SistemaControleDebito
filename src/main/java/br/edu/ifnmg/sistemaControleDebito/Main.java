@@ -7,10 +7,7 @@ package br.edu.ifnmg.sistemaControleDebito;
 
 import br.edu.ifnmg.sistemaControleDebito.controle.MenuInicialControle;
 import br.edu.ifnmg.sistemaControleDebito.controle.FuncionarioControle;
-import br.edu.ifnmg.sistemaControleDebito.controle.GerenteControle;
 import br.edu.ifnmg.sistemaControleDebito.modelo.Gerente;
-import br.edu.ifnmg.sistemaControleDebito.modelo.Pagamento;
-import java.time.LocalDateTime;
 import static br.edu.ifnmg.sistemaControleDebito.controle.PrimeiroAcessoControle.primeiroAcessoControle;
 
 

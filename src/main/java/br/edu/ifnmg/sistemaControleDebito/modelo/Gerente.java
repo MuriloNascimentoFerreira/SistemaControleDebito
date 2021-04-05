@@ -16,6 +16,10 @@ public class Gerente extends UsuarioSistema {
         super(usuario, senha, nome, cpf, endereco, email, rg, salarioFixo, bonusSalarial);
     }
 
+    public Gerente() {
+         
+    }
+
     
     
     public void cadastrarFuncionario(Gerente gerente){

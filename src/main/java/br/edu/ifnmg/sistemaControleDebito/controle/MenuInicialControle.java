@@ -65,30 +65,37 @@ public class MenuInicialControle {
         String usuario = ler.nextLine();
         System.out.printf("Senha: \n");
         String senhaTentada = ler.nextLine();
-        
-        if(tipoFuncionario == 1){
-           
-            Gerente gerente = null;
+        try{
+            if(tipoFuncionario == 1){
 
-            gerente = (Gerente) FuncionarioDAO.buscarFuncionario(usuario);
-            if(gerente == null){
-                return false;
-            }else if(gerente instanceof Gerente){
-                resposta = gerente.validarSenha(senhaTentada);
-            }
-        }else  if(tipoFuncionario == 2){
-           
-            Caixa caixa = null;
+                Gerente gerente = new Gerente();
 
-            caixa = (Caixa) FuncionarioDAO.buscarFuncionario(usuario);
-            if(caixa == null){
-                return false;
-            }else if(caixa instanceof Caixa){
-                resposta = caixa.validarSenha(senhaTentada);
-            }
-        }
-        
+                gerente = (Gerente) FuncionarioDAO.buscarFuncionario(usuario);
+                if(!gerente.getUsuario().equalsIgnoreCase(usuario)){
+                    resposta = false;
+                }else if(gerente instanceof Gerente){
+                    resposta = gerente.validarSenha(senhaTentada);
+                }
+            }else  if(tipoFuncionario == 2){
+
+                Caixa caixa = new Caixa();
+
+                caixa = (Caixa) FuncionarioDAO.buscarFuncionario(usuario);
+                if(!caixa.getUsuario().equalsIgnoreCase(usuario)){
+                    resposta = false;
+                }else if(caixa instanceof Caixa){
+                    resposta = caixa.validarSenha(senhaTentada);
+                }
+            }else if(!resposta){
+                    Tela.mensagemLoginInvalido();
+                }
+            
+        }catch(NullPointerException e){
+            Tela.mensagemLoginInvalido();
+            MenuInicialControle.autenticarLogin(tipoFuncionario);
+        }  
         return resposta;
     }
-    
 }
+    
+

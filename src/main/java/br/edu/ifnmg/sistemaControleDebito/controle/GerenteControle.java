@@ -16,7 +16,7 @@ import java.util.Scanner;
  */
 public class GerenteControle{
     
-    public static void cadastrarGerente(){
+    public static void cadastrarGerente() {
         String nome;
         String cpf;
         String endereco;
@@ -54,6 +54,7 @@ public class GerenteControle{
             
         }catch(NumberFormatException e){
             Tela.numeroInvalido();
+            NumberFormatException();
         }
     }
     
@@ -69,9 +70,9 @@ public class GerenteControle{
                 
     }
     
-    public void NumberFormatException(){
+    public static void NumberFormatException(){
         
-        if(VerificaErroPrimeiroAcesso.verificaErroPrimeiroAcesso()) {
+        if(FuncionarioDAO.verificaGerenteValido()) {
             MenuInicialControle.ControlarOpcaoEscolhida();
         }else{
             PrimeiroAcessoControle.primeiroAcessoControle();

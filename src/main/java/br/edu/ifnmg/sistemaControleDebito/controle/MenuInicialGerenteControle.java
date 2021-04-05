@@ -11,7 +11,7 @@ import br.edu.ifnmg.sistemaControleDebito.view.Tela;
  *
  * @author Murilo
  */
-public class MenuInicialGerenteControle extends Exception{
+public class MenuInicialGerenteControle{
     
     public static void controlarOpcaoEscolhidaGerente(){
         int opcaoDesejada;

@@ -20,7 +20,7 @@ public class PrimeiroAcessoControle {
     
         Tela tela = new Tela();
         tela.primeiroAcessoTela();
-        Gerente gerente = null;
+        Gerente gerente = new Gerente();
         String usuario;
         String senhaTentada;
         try{
@@ -33,24 +33,29 @@ public class PrimeiroAcessoControle {
                 senhaTentada = ler.nextLine();
 
                 gerente = (Gerente) FuncionarioDAO.buscarFuncionario(usuario);
-                if(gerente == null){
+                if(!gerente.getNome().equalsIgnoreCase(usuario)){
                     System.out.println("Usuário ou senha inválidos!");
                 }else if (gerente.validarSenha(senhaTentada)){
                         System.out.println("\nFaça o seu cadastro para continuar\n");
                         cadastrarPrimeiroGerente();
                         break;
+                }else{
+                    Tela.mensagemLoginInvalido();
                 }
+                
             }while(true);
+            
         }catch(NumberFormatException e){
             Tela.numeroInvalido();
+            primeiroAcessoControle();
+        }catch(NullPointerException f){
+            Tela.numeroInvalido();
+            primeiroAcessoControle();
         }
     }
     
     private static void cadastrarPrimeiroGerente(){
         GerenteControle.cadastrarGerente();
-    }
-    public void NumberFormatException(){
-        primeiroAcessoControle();
     }
     
 }

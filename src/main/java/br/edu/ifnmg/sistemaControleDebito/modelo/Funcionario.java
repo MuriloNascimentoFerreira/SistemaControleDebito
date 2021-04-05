@@ -29,9 +29,12 @@ public class Funcionario {
         this.salarioFixo = salarioFixo;
         this.bonusSalarial = bonusSalarial;
     }
+
+    public Funcionario() {
+    }
     
 
-       /*public double gerarSalarioTotal(){
+    /*public double gerarSalarioTotal(){
     
     
     }*/

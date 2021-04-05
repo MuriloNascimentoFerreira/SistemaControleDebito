@@ -18,6 +18,9 @@ public abstract class UsuarioSistema extends Funcionario{
         this.usuario = usuario;
         this.senha = senha;
     }
+
+    public UsuarioSistema() {
+    }
     
     
     
