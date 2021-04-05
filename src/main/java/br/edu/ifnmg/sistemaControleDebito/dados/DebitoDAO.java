@@ -23,7 +23,7 @@ public class DebitoDAO {
     }
     
     
-    public static Debito buscarDebitoCliente(String descricaoDebito) {
+    public static Debito buscarDebito(String descricaoDebito) {
         Debito debito = null;                                  
         for(Debito debitoEmPesquisa : debitos){     
             if (debitoEmPesquisa instanceof DebitoCliente){
@@ -41,6 +41,23 @@ public class DebitoDAO {
     
      public static void excluirFuncionario(Debito debito) {
         debitos.remove(debito);
+    }
+
+    public static int buscarIdDoDebito(String descricaoDebito) {
+        
+        int id = 0;                                  
+        for(Debito debitoEmPesquisa : debitos){     
+            if (debitoEmPesquisa instanceof DebitoCliente){
+                DebitoCliente debitoCliente = (DebitoCliente) debitoEmPesquisa;
+                if(debitoCliente.getDescricao().equals(descricaoDebito) ){
+                    id = debitoEmPesquisa.getId();
+                    break;
+                }
+            }else if(debitoEmPesquisa instanceof DebitoFuncionario){
+                
+            }
+        }
+        return id;
     }
     
 }

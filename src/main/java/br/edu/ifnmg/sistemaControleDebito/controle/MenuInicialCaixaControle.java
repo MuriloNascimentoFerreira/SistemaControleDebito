@@ -11,30 +11,34 @@ import br.edu.ifnmg.sistemaControleDebito.view.Tela;
  *
  * @author Murilo
  */
-public class MenuInicialCaixaControle {
+public class MenuInicialCaixaControle extends Exception{
 
-    private int opcaoDesejada;
-   
-    public void ControlarOpcaoEscolhidaCaixa(){
-       
-        do{
-            Tela tela = new Tela();
-            this.opcaoDesejada = tela.carregarTelaInicialCaixa() ;
-            
-            switch (opcaoDesejada){
-                case 1:DebitoControle.gerenciarOpcaoDebitoControle();
-                    break;
+    public static void controlarOpcaoEscolhidaCaixa(){
+        int opcaoDesejada;
+        try{
+            do{
+                opcaoDesejada = Tela.carregarTelaInicialCaixa() ;
 
-                case 2:ClienteControle.cadastrarCliente();
-                    break;
-                    
-                case 3:PagamentoControle.realizarPagamento();
-                      break;
-                      
-                case 0: return; //sair
-                
-                default: Tela.mensagemOpcaoInvalida();
-            }
-        }while(true);
-    }   
+                switch (opcaoDesejada){
+                    case 1:DebitoControle.gerenciarOpcaoDebitoControle();
+                        break;
+
+                    case 2:ClienteControle.cadastrarCliente();
+                        break;
+
+                    case 3:PagamentoControle.realizarPagamento();
+                          break;
+
+                    case 0: return;
+
+                    default: Tela.mensagemOpcaoInvalida();
+                }
+            }while(true);
+        }catch(NumberFormatException e){
+            Tela.numeroInvalido();
+        }    
+    }
+     public void NumberFormatException(){
+        MenuInicialCaixaControle.controlarOpcaoEscolhidaCaixa();
+    }
 }

@@ -6,34 +6,69 @@
 package br.edu.ifnmg.sistemaControleDebito.controle;
 
 import br.edu.ifnmg.sistemaControleDebito.view.Tela;
-import java.util.Scanner;
 
 /**
  *
  * @author Murilo
  */
-public class MenuInicialGerenteControle {
-    private int opcaoDesejada;
+public class MenuInicialGerenteControle extends Exception{
     
-    public void ControlarOpcaoEscolhidaGerente(){
-       
-        do{
-            Tela tela = new Tela();
-            this.opcaoDesejada = tela.carregarTelaInicialGerente() ;
-            
-            switch (opcaoDesejada){
-                case 1: System.out.println("Opção um"); //chamar controlador para essa função 
-                    break;
+    public static void controlarOpcaoEscolhidaGerente(){
+        int opcaoDesejada;
+        try{
+            do{
+                opcaoDesejada = Tela.carregarTelaInicialGerente();
 
-                case 2://pessoas 
+                switch (opcaoDesejada){
+                    case 1:DebitoControle.gerenciarOpcaoDebitoControle();
+                        break;
 
-                case 3: //relatorios
-                
-                case 0: return; //sair
-                
-                default: tela.mensagemOpcaoInvalida();
-            }
-        }while(true);
+                    case 2:gerenciarCadastroPessoas();
+                        
+                    case 3:PagamentoControle.realizarPagamento();
+                          break;
+
+                    case 0: return;
+
+                    default: Tela.mensagemOpcaoInvalida();
+                }
+            }while(true);
+        }catch(NumberFormatException e){
+            Tela.numeroInvalido();
+        }    
+        
+    }
+    public static void gerenciarCadastroPessoas(){
+        int opcaoDesejada;
+         try{
+            do{
+                opcaoDesejada = Tela.carregarTelaCadastroPessoas();
+
+                switch (opcaoDesejada){
+                    case 1:GerenteControle.cadastrarCliente();//cadastrar cliente
+                        break;
+                        
+                    case 2:GerenteControle.cadastrarFuncionario();//cadastrar funcionario
+                          break;
+                          
+                    case 3:GerenteControle.cadastrarCaixa();//cadastrar caixa
+                         break;
+                         
+                    case 4:GerenteControle.cadastrarGerente();//cadastrar gerente
+                          break;
+
+                    case 0: return;
+
+                    default: Tela.mensagemOpcaoInvalida();
+                }
+            }while(true);
+        }catch(NumberFormatException e){
+            Tela.numeroInvalido();
+        } 
+        
     }
     
+    public void NumberFormatException(){
+        controlarOpcaoEscolhidaGerente();
+    }
 }

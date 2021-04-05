@@ -36,21 +36,6 @@ public class FuncionarioDAO {
         }
         return funcionario;
     }
-    
-    /*public static Pessoa buscarPessoa(Gerente gerenteTentandoLogar) {
-        Gerente gerente = null; 
-        for(Pessoa pessoaEmPesquisa : pessoas){
-            Gerente gerenteEmPesquisa = (Gerente) pessoaEmPesquisa;
-            if(gerenteEmPesquisa.getUsuario().equals(gerenteTentandoLogar.getUsuario()) ){
-                gerente = gerenteEmPesquisa;
-                break;
-            }else{
-                gerente = null;
-            }
-        }
-        return gerente;
-    }
-    */
 
     public static void excluirFuncionario(Gerente gerente) {
         funcionarios.remove(gerente);
@@ -58,5 +43,17 @@ public class FuncionarioDAO {
     
     private static void interarContador() {
         idContador++;
+    }
+
+    public static boolean verificaGerenteValido() {
+        boolean resposta = false;
+        for(Funcionario funcionarioEmPesquisa : funcionarios){
+            if ( (funcionarioEmPesquisa instanceof Gerente) && (!funcionarioEmPesquisa.getNome().equals("admin"))){
+                resposta = true;
+                break;
+
+            }
+        }
+        return resposta;
     }
 }

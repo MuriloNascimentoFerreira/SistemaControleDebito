@@ -13,8 +13,13 @@ public class Caixa extends UsuarioSistema {
     private String usuario;
     private String senha;
 
-    public Caixa(String nome, String cpf, String endereco, String email, String rg, double salarioFixo, double bonusSalarial, String usuario, String senha) {
-        super(nome, cpf, endereco, email, rg, salarioFixo, bonusSalarial, usuario, senha);
+    public Caixa(String nome, String cpf, String endereco, String email,
+            String rg, double salarioFixo, double bonusSalarial, String usuario, String senha) {
+        super(usuario, senha, nome, cpf, endereco, email, rg, salarioFixo, bonusSalarial);
+        this.usuario = usuario;
+        this.senha = senha;
     }
+
+    
     
 }

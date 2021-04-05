@@ -3,12 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package br.edu.ifnmg.sistemaControleDebito.modelo;
+package br.edu.ifnmg.sistemaControleDebito.controle;
 
 /**
  *
  * @author Murilo
  */
-public class Vendedor {
+public class CaixaControle {
     
 }

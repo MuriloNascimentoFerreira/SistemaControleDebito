@@ -89,15 +89,18 @@ public class DebitoControle extends Exception{
         System.out.println("Intervalo em dias de cada parcela: ");
         debitoCliente.setIntervaloParcela(Integer.parseInt(ler.nextLine()) );
         debitoCliente.setDataDebito(LocalDateTime.now());
-       // debitoCliente.setId(idResponsavel);
         System.out.println("---------------------------------------------------\n");
-      
-        cliente.setDebito(debitoCliente);
-        DebitoDAO.adicionarDebito(debitoCliente);
-        ClienteDAO.atualizarDados(cliente);
         
-        System.out.println("***Cadastro concluido com suscesso!\n");
-   
+         System.out.println("\n*Deseja confirmar o registro? S(sim) N(Não)");
+        char resposta = ler.nextLine().charAt(0);
+        if (resposta == 's' || resposta == 'S' ){
+            cliente.setDebito(debitoCliente);
+            DebitoDAO.adicionarDebito(debitoCliente);
+            ClienteDAO.atualizarDados(cliente);
+            System.out.println("***Cadastro concluido com suscesso!\n");
+        }else if(resposta == 'n' || resposta == 'N'){
+            System.out.println("\n*Operação cancelada\n");
+        }
     }
     
      private static void cadastrarDebito(DebitoFuncionario debitoFuncionario, int idResponsavel) {

@@ -6,57 +6,76 @@
 package br.edu.ifnmg.sistemaControleDebito.controle;
 
 import br.edu.ifnmg.sistemaControleDebito.dados.FuncionarioDAO;
-import br.edu.ifnmg.sistemaControleDebito.modelo.Funcionario;
 import br.edu.ifnmg.sistemaControleDebito.modelo.Gerente;
+import br.edu.ifnmg.sistemaControleDebito.view.Tela;
 import java.util.Scanner;
 
 /**
  *
  * @author Murilo
  */
-public class GerenteControle {
-    private String nome;
-    private String cpf;
-    private String endereco;
-    private String email;
-    private String rg;
-    private double salarioFixo;
-    private double bonusSalarial;
-    private String usuario;
-    private String senha;
+public class GerenteControle{
     
-    public void CadastrarFuncionario(){//mudar para classe FuncionarioControle 
-        
-        System.out.println("-----------------Cadastro de Gerente--------------\n");
-        Scanner ler = new Scanner(System.in);
-        System.out.println("Nome: ");
-        this.nome = (ler.nextLine());
-        System.out.println("Cpf: ");
-        this.cpf = (ler.nextLine());
-        System.out.println("Endereço: ");
-        this.endereco = (ler.nextLine());
-        System.out.println("Email: ");
-        this.email = (ler.nextLine());
-        System.out.println("RG: ");
-        this.rg = (ler.nextLine());
-        System.out.println("SalarioFixo: ");
-        this.salarioFixo = (Double.parseDouble(ler.nextLine()));
-        System.out.println("Bonus Salarial: ");
-        this.bonusSalarial = Integer.parseInt(ler.nextLine());
-        System.out.println("Usuario: ");
-        this.usuario = (ler.nextLine());
-        System.out.println("Senha: ");
-        this.senha = (ler.nextLine());
-        System.out.println("---------------------------------------------------\n");
-        
-        Gerente gerente = new Gerente(this.nome, this.cpf, this.endereco, this.email, this.rg, this.salarioFixo,this.bonusSalarial,
-        this.usuario, this.senha);
-        FuncionarioDAO.adicionarFuncionario(gerente);
-    
+    public static void cadastrarGerente(){
+        String nome;
+        String cpf;
+        String endereco;
+        String email;
+        String rg;
+        double salarioFixo;
+        double bonusSalarial;
+        String usuario;
+        String senha;
+        try{
+            System.out.println("-----------------Cadastro de Gerente--------------\n");
+            Scanner ler = new Scanner(System.in);
+            System.out.println("Nome: ");
+            nome = (ler.nextLine());
+            System.out.println("Cpf: ");
+            cpf = (ler.nextLine());
+            System.out.println("Endereço: ");
+            endereco = (ler.nextLine());
+            System.out.println("Email: ");
+            email = (ler.nextLine());
+            System.out.println("RG: ");
+            rg = (ler.nextLine());
+            System.out.println("SalarioFixo: ");
+            salarioFixo = (Double.parseDouble(ler.nextLine()));
+            System.out.println("Bonus Salarial: ");
+            bonusSalarial = Integer.parseInt(ler.nextLine());
+            System.out.println("Usuario: ");
+            usuario = (ler.nextLine());
+            System.out.println("Senha: ");
+            senha = (ler.nextLine());
+            System.out.println("---------------------------------------------------\n");
+            Gerente gerente = new Gerente(nome, cpf, endereco, email, rg, salarioFixo, bonusSalarial,
+                usuario, senha);
+            FuncionarioDAO.adicionarFuncionario(gerente);
+            
+        }catch(NumberFormatException e){
+            Tela.numeroInvalido();
+        }
     }
     
-    public void CadastrarFuncionario(Funcionario funcionario){
+    public static void cadastrarFuncionario(){
+      //  FuncionarioControle.cadastrarFuncionario();
+    }
+     public static void cadastrarCaixa(){
+     //   CaixaControle.cadastrarCaixa();
+    }
+     
+    public static void cadastrarCliente(){
+        ClienteControle.cadastrarCliente();
+                
+    }
     
+    public void NumberFormatException(){
+        
+        if(VerificaErroPrimeiroAcesso.verificaErroPrimeiroAcesso()) {
+            MenuInicialControle.ControlarOpcaoEscolhida();
+        }else{
+            PrimeiroAcessoControle.primeiroAcessoControle();
+        }
     }
     
 }

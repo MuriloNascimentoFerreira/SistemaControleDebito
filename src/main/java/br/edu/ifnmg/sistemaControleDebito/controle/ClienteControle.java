@@ -15,6 +15,7 @@ import java.util.Scanner;
  * @author Murilo
  */
 public class ClienteControle extends Exception{
+    
     public static void cadastrarCliente(){
         
         try{
@@ -32,7 +33,6 @@ public class ClienteControle extends Exception{
             cliente.setEmail(ler.nextLine());
             System.out.println("Limite de credito: ");
             cliente.setLimiteCredito(Double.parseDouble(ler.nextLine()));
-           // cliente.setId(ClienteDAO.getIdContator);
             cliente.setDebitos();
             ClienteDAO.adicionarCliente(cliente);
             System.out.println("\n***Cadastro realizado com sucesso! \n");

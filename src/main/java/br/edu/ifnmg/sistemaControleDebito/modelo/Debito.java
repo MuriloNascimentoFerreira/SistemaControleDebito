@@ -51,6 +51,26 @@ public abstract class Debito {
     public String getDescricao() {
         return descricao;
     }
+
+    public int getId() {
+        return id;
+    }
+
+    public double getValorParcela() {
+        return valorParcela;
+    }
+
+    public int getQuantidadeParcela() {
+        return quantidadeParcela;
+    }
+
+    public LocalDateTime getDataDebito() {
+        return DataDebito;
+    }
+
+    public int getIntervaloParcela() {
+        return intervaloParcela;
+    }
     
 
     

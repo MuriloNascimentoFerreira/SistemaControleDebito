@@ -12,16 +12,14 @@ package br.edu.ifnmg.sistemaControleDebito.modelo;
 public abstract class UsuarioSistema extends Funcionario{
     private String usuario;
     private String senha;
-    
-    public UsuarioSistema(String nome, String cpf, String endereco, String email,
-            String rg, double salarioFixo, double bonusSalarial,
-             String usuario, String senha) {
-        
+
+    public UsuarioSistema(String usuario, String senha, String nome, String cpf, String endereco, String email, String rg, double salarioFixo, double bonusSalarial) {
         super(nome, cpf, endereco, email, rg, salarioFixo, bonusSalarial);
-        
         this.usuario = usuario;
-        this.senha =  senha; 
+        this.senha = senha;
     }
+    
+    
     
       public String getUsuario() {
         return usuario;
