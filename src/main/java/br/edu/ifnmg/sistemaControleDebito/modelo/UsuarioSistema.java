@@ -22,8 +22,6 @@ public abstract class UsuarioSistema extends Funcionario{
     public UsuarioSistema() {
     }
     
-    
-    
       public String getUsuario() {
         return usuario;
     }

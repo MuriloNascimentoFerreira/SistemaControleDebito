@@ -21,6 +21,8 @@ public class Caixa extends UsuarioSistema {
     }
 
     public Caixa() {
+        this.usuario = "";
+        this.senha = "";
        
     }
 

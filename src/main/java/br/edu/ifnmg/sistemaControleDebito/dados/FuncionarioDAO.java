@@ -5,6 +5,7 @@
  */
 package br.edu.ifnmg.sistemaControleDebito.dados;
 
+import br.edu.ifnmg.sistemaControleDebito.modelo.Caixa;
 import br.edu.ifnmg.sistemaControleDebito.modelo.Funcionario;
 import br.edu.ifnmg.sistemaControleDebito.modelo.Gerente;
 import java.util.ArrayList;
@@ -23,12 +24,19 @@ public class FuncionarioDAO {
         interarContador();
     }
     
-    public static Funcionario buscarFuncionario(String usuario) {
+    public static Funcionario buscarFuncionario(String usuario,int tipoFuncionario) {
         Funcionario funcionario = null;
         for(Funcionario funcionarioEmPesquisa : funcionarios){
             if (funcionarioEmPesquisa instanceof Gerente){
                 Gerente gerenteEmPesquisa = (Gerente) funcionarioEmPesquisa;
-                if(gerenteEmPesquisa.getUsuario().equalsIgnoreCase(usuario) ){
+                if(gerenteEmPesquisa.getUsuario().equalsIgnoreCase(usuario) && tipoFuncionario == 1){
+                    funcionario = funcionarioEmPesquisa;
+                    break;
+                }
+            }
+            if (funcionarioEmPesquisa instanceof Caixa){
+                Caixa caixaEmPesquisa = (Caixa) funcionarioEmPesquisa;
+                if(caixaEmPesquisa.getUsuario().equalsIgnoreCase(usuario)  && tipoFuncionario == 2){
                     funcionario = funcionarioEmPesquisa;
                     break;
                 }

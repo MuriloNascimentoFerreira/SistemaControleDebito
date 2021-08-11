@@ -24,6 +24,7 @@ public class MenuInicialGerenteControle{
                         break;
 
                     case 2:gerenciarCadastroPessoas();
+                        break;
                         
                     case 3:PagamentoControle.realizarPagamento();
                           break;

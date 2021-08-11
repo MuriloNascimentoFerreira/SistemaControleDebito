@@ -17,7 +17,6 @@ import java.util.Scanner;
  */
 public class MenuInicialControle {
     
-    
     public static void ControlarOpcaoEscolhida(){
        int opcaoDesejada;
        try{
@@ -29,7 +28,7 @@ public class MenuInicialControle {
 
                 switch (opcaoDesejada){
                     case 1:
-                        if (autenticarLogin(1)){
+                        if (AutenticacaoLogin.autenticarLogin(1)){
                             telaInicialGerenteControle.controlarOpcaoEscolhidaGerente();
                             break;
                         }else{
@@ -38,7 +37,7 @@ public class MenuInicialControle {
                         }
 
                     case 2:
-                        if(autenticarLogin(2)){
+                        if(AutenticacaoLogin.autenticarLogin(2)){
                             telaInicialCaixaControle.controlarOpcaoEscolhidaCaixa();
                             break;
                         }else{
@@ -56,46 +55,6 @@ public class MenuInicialControle {
        }
     }
 
-    private static boolean autenticarLogin(int tipoFuncionario) {
-        boolean resposta = false;
-        
-        System.out.printf("\n------------------------ Login ------------------------\n");
-        System.out.printf("Usuário: \n");
-        Scanner ler = new Scanner(System.in);
-        String usuario = ler.nextLine();
-        System.out.printf("Senha: \n");
-        String senhaTentada = ler.nextLine();
-        try{
-            if(tipoFuncionario == 1){
-
-                Gerente gerente = new Gerente();
-
-                gerente = (Gerente) FuncionarioDAO.buscarFuncionario(usuario);
-                if(!gerente.getUsuario().equalsIgnoreCase(usuario)){
-                    resposta = false;
-                }else if(gerente instanceof Gerente){
-                    resposta = gerente.validarSenha(senhaTentada);
-                }
-            }else  if(tipoFuncionario == 2){
-
-                Caixa caixa = new Caixa();
-
-                caixa = (Caixa) FuncionarioDAO.buscarFuncionario(usuario);
-                if(!caixa.getUsuario().equalsIgnoreCase(usuario)){
-                    resposta = false;
-                }else if(caixa instanceof Caixa){
-                    resposta = caixa.validarSenha(senhaTentada);
-                }
-            }else if(!resposta){
-                    Tela.mensagemLoginInvalido();
-                }
-            
-        }catch(NullPointerException e){
-            Tela.mensagemLoginInvalido();
-            MenuInicialControle.autenticarLogin(tipoFuncionario);
-        }  
-        return resposta;
-    }
 }
     
 

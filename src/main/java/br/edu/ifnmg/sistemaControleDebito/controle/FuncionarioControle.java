@@ -6,6 +6,7 @@
 package br.edu.ifnmg.sistemaControleDebito.controle;
 
 import br.edu.ifnmg.sistemaControleDebito.dados.FuncionarioDAO;
+import br.edu.ifnmg.sistemaControleDebito.modelo.Caixa;
 import br.edu.ifnmg.sistemaControleDebito.modelo.Gerente;
 
 /**
@@ -16,6 +17,10 @@ public class FuncionarioControle {
     
     public void adicionarFuncionario(Gerente gerente){
         FuncionarioDAO.adicionarFuncionario(gerente);
+    }
+    
+    public void adicionarFuncionario(Caixa caixa){
+        FuncionarioDAO.adicionarFuncionario(caixa);
     }
 
     public void excluirFuncionario(Gerente gerente) {

@@ -9,6 +9,7 @@ import br.edu.ifnmg.sistemaControleDebito.controle.MenuInicialControle;
 import br.edu.ifnmg.sistemaControleDebito.controle.FuncionarioControle;
 import br.edu.ifnmg.sistemaControleDebito.modelo.Gerente;
 import static br.edu.ifnmg.sistemaControleDebito.controle.PrimeiroAcessoControle.primeiroAcessoControle;
+import br.edu.ifnmg.sistemaControleDebito.modelo.Caixa;
 
 
 /**
@@ -23,11 +24,12 @@ public class Main {
                 "rua teste numero 001", "9.888.777", 0, 0, "admin", "admin");
         
         FuncionarioControle funcionarioControle = new FuncionarioControle();
-        funcionarioControle.adicionarFuncionario(gerente); 
+        funcionarioControle.adicionarFuncionario(gerente);
+    
         primeiroAcessoControle();
         
         funcionarioControle.excluirFuncionario(gerente); 
-       
+     
         MenuInicialControle.ControlarOpcaoEscolhida();
         
     }

@@ -59,6 +59,8 @@ public class DebitoControle{
         if(cliente != null){
             DebitoCliente debitoCliente = new DebitoCliente();
             cadastrarDebito(debitoCliente,cliente);
+        }else if(cliente ==null){
+            Tela.naoEncontrado();
         }
     }
 
@@ -68,11 +70,14 @@ public class DebitoControle{
         Scanner ler = new Scanner(System.in);
         System.out.println("Nome do funcionario:");
         nome = (ler.nextLine());
-        funcionario = FuncionarioDAO.buscarFuncionario(nome);
+        funcionario = FuncionarioDAO.buscarFuncionario(nome,1);
+        funcionario = FuncionarioDAO.buscarFuncionario(nome,2);
         
-        if(funcionario.equals(null)){
+        if(funcionario != null){
             DebitoFuncionario debitofuncionario = new DebitoFuncionario();
             cadastrarDebito(debitofuncionario,funcionario.getId());
+        }else if(funcionario == null){
+            Tela.naoEncontrado();
         }
     }
 

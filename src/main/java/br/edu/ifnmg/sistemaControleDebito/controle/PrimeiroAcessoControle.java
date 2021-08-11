@@ -32,7 +32,7 @@ public class PrimeiroAcessoControle {
                 System.out.println("Senha: ");
                 senhaTentada = ler.nextLine();
 
-                gerente = (Gerente) FuncionarioDAO.buscarFuncionario(usuario);
+                gerente = (Gerente) FuncionarioDAO.buscarFuncionario(usuario,1);
                 if(!gerente.getNome().equalsIgnoreCase(usuario)){
                     System.out.println("Usuário ou senha inválidos!");
                 }else if (gerente.validarSenha(senhaTentada)){

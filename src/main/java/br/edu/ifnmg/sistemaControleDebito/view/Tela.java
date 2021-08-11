@@ -47,7 +47,8 @@ public class Tela {
         System.out.printf("---------------Menu Inicial Gerente-------------------\n");
         System.out.printf("1- Registrar Débitos\n");
         System.out.printf("2- Cadastrar pessoas\n");
-        System.out.printf("3- Relatórios\n");
+        System.out.printf("3- Pagamentos\n");
+        System.out.printf("4- Relatórios\n");
         System.out.printf("0- Retornar menu anterior\n");
         System.out.printf("------------------------------------------------------\n");
         System.out.printf("Digite a opção desejada: \n");
@@ -137,6 +138,10 @@ public class Tela {
         opcao = Integer.parseInt(ler.nextLine());
         
         return opcao;
+    }
+
+    public static void naoEncontrado() {
+       System.out.printf("\n!!Não encontrado ou não cadastrado!!\n");
     }
 
     public void primeiroAcessoTela(){
